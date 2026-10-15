@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Remove or fix my card
+    url: https://github.com/archestack/jobs/issues?q=is%3Aissue+author%3A%40me+%22Open+to+work%22
+    about: Close your own "Open to work" issue; the card is gone at the next refresh, within 24 hours. Or write to hello@archestack.com.
