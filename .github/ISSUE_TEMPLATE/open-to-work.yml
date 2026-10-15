@@ -1,0 +1,71 @@
+name: Open to work
+description: Add yourself to "Contributors open to work" on archestack.com. Free, 90 days, remove yourself any time by closing this issue.
+title: 'Open to work: '
+labels: [open-to-work]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Who runs this and what is shown.** Archestack (archestack.com, Ken Nguyen, hello@archestack.com) keeps a list of contributors to the open-source AI projects on its lists who are open to work. Your card shows your GitHub handle and avatar, the merged pull request you name below, and what you write here. Nothing else: no email, no CV, no employer.
+
+        **Entry rule.** One pull request of yours merged in the last 24 months into a project on archestack.com, by this GitHub account. We check it on GitHub; nothing is shown until it passes.
+
+        **For how long, and how to leave.** The card stays 90 days from this issue's date (open a new one to renew). Close this issue and the card is gone at the next refresh, within 24 hours. The page is not indexed by search engines. Questions: hello@archestack.com.
+  - type: input
+    id: pr
+    attributes:
+      label: A merged pull request of yours in a listed project
+      description: Its URL, like https://github.com/owner/name/pull/123. Merged in the last 24 months, by this account, into a project on one of our lists.
+      placeholder: https://github.com/owner/name/pull/123
+    validations:
+      required: true
+  - type: input
+    id: roles
+    attributes:
+      label: Roles you want
+      description: A few words, like "backend, LLM infra, contract or full-time". Up to 80 characters.
+    validations:
+      required: true
+  - type: dropdown
+    id: work
+    attributes:
+      label: Work arrangement
+      options:
+        - Remote
+        - Hybrid
+        - On-site
+        - Any
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Country and time zone
+      description: Like "Vietnam, UTC+7". Up to 60 characters.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: One link (optional)
+      description: Your site, blog or a profile page you choose (https only).
+  - type: textarea
+    id: about
+    attributes:
+      label: A line about you (optional)
+      description: Up to 280 characters, shown as plain text.
+  - type: checkboxes
+    id: referrals
+    attributes:
+      label: Paid AI training work (optional)
+      description: Contract work writing and reviewing code for AI labs, paid by the hour. Tick a marketplace and we may reply on this issue with one of its open roles through our referral link. If you get paid work there, the marketplace pays Archestack a referral fee. It decides who gets work and what it pays; we promise neither. Leave both empty and we never send one.
+      options:
+        - label: "micro1: you may send me micro1 roles through Archestack's referral link."
+        - label: "Mercor: you may send me Mercor roles through Archestack's referral link."
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: Show my GitHub handle and avatar, the pull request above and what I wrote here on archestack.com/people/ for 90 days. I can close this issue at any time to be removed at the next refresh, within 24 hours.
+          required: true
