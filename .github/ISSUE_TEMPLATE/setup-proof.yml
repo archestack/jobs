@@ -1,0 +1,42 @@
+name: Setup proof
+description: Show that you run and secured a live deployment of a project, so setup work for it can go to you. Checked automatically, no call.
+title: 'Setup proof: '
+labels: [setup-proof]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **How it works.** Open this issue signed in to the GitHub account you want the proof on. You get a reply with a one-time code. Serve that code as plain text at `https://<your host>/.well-known/archestack/<code>`, then comment `/check`. The check reads only public pages of your deployment over HTTPS, with no login: the code, the app's own version page, TLS, and whether sign-up and the admin setup are closed. The result is posted here as a dated pass or fail list.
+
+        **What it never does.** No login, no form posts, nothing that changes your deployment, at most 10 requests a check. Hosts on private or local addresses are refused. A pass lasts 90 days or until the project's next major release.
+
+        **Who runs this.** Archestack (archestack.com, Ken Nguyen, hello@archestack.com). The host you name stays in this issue only; it is never shown on archestack.com. Close the issue to withdraw.
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      description: The project your deployment runs.
+      options:
+        - Open WebUI [open-webui]
+        - Dify [dify]
+        - n8n [n8n]
+        - Qdrant [qdrant]
+        - AnythingLLM [anything-llm]
+        - Ollama [ollama]
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Host
+      description: The public hostname it answers on, like ai.example.com. HTTPS on port 443; no IP addresses, ports or paths.
+      placeholder: ai.example.com
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I run this deployment and agree to the check described above.
+          required: true
